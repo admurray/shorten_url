@@ -1,19 +1,14 @@
-from tornado.web import RequestHandler
 from tornado_sqlalchemy import SessionMixin
+from tornado.web import RequestHandler
 
-from model import URLMapping
-from schema import URLMappingSchema
-from utilities import get_short_url_id, get_short_url
-
-
-class IndexHandler(SessionMixin, RequestHandler):
-    def get(self):
-        self.render('templates/index.html')
+from models.model import URLMapping
+from utilities.utilities import get_short_url_id, get_short_url
+from config import Config
 
 
 class ShortenURLHandler(SessionMixin, RequestHandler):
     def get(self):
-        self.render('templates/index.html')
+        self.render(f'{Config.TEMPLATES_DIR}/index.html')
 
     def post(self):
         longurl = self.get_argument("long_url").strip()
@@ -31,20 +26,9 @@ class ShortenURLHandler(SessionMixin, RequestHandler):
 
             session.add(url_mapping)
             short_url_id = url_mapping.short_url_id
-            url_mapping_schema = URLMappingSchema()
-            serialized_mapping = url_mapping_schema.dump(url_mapping)
 
         self.render(
-            "templates/shorten.html",
+            f"{Config.TEMPLATES_DIR}/shorten.html",
             short_url=get_short_url(short_url_id),
             base_url=f"{self.request.protocol}://{self.request.host}"
         )
-
-
-class RedirectHandler(SessionMixin, RequestHandler):
-    def get(self, short_url_id):
-        with self.make_session() as session:
-            url_mapping = session.query(URLMapping).filter(
-                URLMapping.short_url_id == short_url_id).first()
-            long_url = url_mapping.long_url
-        self.redirect(long_url)

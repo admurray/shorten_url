@@ -9,7 +9,7 @@ COPY requirements.txt /app
 RUN pip install -r requirements.txt
 
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY configurations/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY . .
 
 RUN python db_setup.py

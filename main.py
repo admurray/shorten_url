@@ -1,12 +1,13 @@
 import asyncio
 
-from sqlalchemy import create_engine
 from tornado.ioloop import IOLoop
 from tornado.web import Application
 from tornado_sqlalchemy import SQLAlchemy
 
 from config import Config
-from handlers import ShortenURLHandler, IndexHandler, RedirectHandler
+from handlers.index_handler import IndexHandler
+from handlers.redirect_handler import RedirectHandler
+from handlers.shortenurl_handler import ShortenURLHandler
 
 
 def make_app():

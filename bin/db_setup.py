@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer, Table, MetaData, create_engine, inspect
 
-from model import URLMapping
+from models.model import URLMapping
 from config import Config
 
 
