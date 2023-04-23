@@ -1,0 +1,9 @@
+version: '3'
+services:
+  tornado-app:
+    build:
+      context: .
+    environment:
+      - PORT=8888
+    ports:
+      - "80:8888"
