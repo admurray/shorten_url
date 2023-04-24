@@ -21,6 +21,8 @@ included as a part of this app. However, that is something high on the priority 
 
 ## Docker build
 
+<span style="color:#990000">**Working directory should be ./ (shorten_url)**</span>
+
 Please ensure docker is installed and running. Also ensure that the docker-compose binary
 is in the path.
 To set up the app using docker. From within the project directory, please run:
@@ -37,6 +39,9 @@ The containerized application should be available at:
 http://127.0.0.1/
 
 ## Running locally
+
+<span style="color:#990000">**Working directory should be ./ (shorten_url)**</span>
+
 
 It is suggested you create a virtual environment if you wish to run the application locally.
 To do this please follow the given steps
