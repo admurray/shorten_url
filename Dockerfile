@@ -9,10 +9,10 @@ COPY requirements.txt /app
 RUN pip install -r requirements.txt
 
 
-COPY configurations/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY . .
 
-RUN python db_setup.py
+RUN python bin/db_setup.py
 
 EXPOSE 8888
 

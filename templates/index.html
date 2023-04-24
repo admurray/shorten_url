@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head><title>URL Shortener</title></head>
+<head>
+    <title>URL Shortener</title>
+</head>
 <body>
-<h1>Enter the URL you would like to shorten below.</h1>
+{% include "../templates/header.html" %}
+<h1>Enter the URL you would like to shorten, below.</h1>
 <form method="post" action="/shorten">
-    <p>URL:<br><input style="width: 95%" name="long_url"></input></p>
-    <input type="submit">
+    <p style="font-family: Arial, sans-serif; font-size: 18px;">URL:
+        <br><br>
+        <input style="width: 95%; font-size: 20px" name="long_url"></p>
+    <input style="font-family: Arial, sans-serif; font-size: 18px;" type="submit">
 </form>
 </body>
 </html>

@@ -1,10 +1,10 @@
 from tornado.web import RequestHandler
 from tornado_sqlalchemy import SessionMixin
-from models.model import URLMapping
+from models.url_mapping import URLMapping
 
 
 class RedirectHandler(SessionMixin, RequestHandler):
-    def get(self, short_url_id):
+    async def get(self, short_url_id):
         with self.make_session() as session:
             url_mapping = session.query(URLMapping).filter(
                 URLMapping.short_url_id == short_url_id).first()

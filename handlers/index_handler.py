@@ -5,5 +5,5 @@ from config import Config
 
 
 class IndexHandler(SessionMixin, RequestHandler):
-    def get(self):
-        self.render(f'{Config.TEMPLATES_DIR}/index.html')
+    async def get(self):
+        await self.render(f'{Config.TEMPLATES_DIR}/index.html')
