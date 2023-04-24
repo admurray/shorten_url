@@ -27,7 +27,7 @@ To set up the app using docker. From within the project directory, please run:
 
 `docker-compose up`
 
-:warning: **VPNs tend to interfere with docker networking and when downloading packages **
+:warning: **VPNs tend to interfere with docker networking and when downloading packages**
 It is recommended to turn the VPN off until the build completes.
 
 #### Access the app.
