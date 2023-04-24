@@ -61,7 +61,7 @@ To do this please follow the given steps
 This will ideally be handled using migration, however for a single object model this script works
 well.
 
-`python bin/db_setup.py`
+`python3 bin/db_setup.py`
 
 #### Start the app.
 
